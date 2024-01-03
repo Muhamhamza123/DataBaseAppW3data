@@ -24,7 +24,7 @@ app = Flask(__name__, static_folder='../w3data/build', static_url_path='/')
 @app.errorhandler(404)
 def catch_all(path):
     return app.send_static_file('index.html')
-CORS(app, supports_credentials=True, origins='http://localhost:3000')
+CORS(app, supports_credentials=True, origins='https://w3data-client-side.onrender.com')
 
 # MySQL connection pooling configuration
 
@@ -104,7 +104,7 @@ def login():
     if request.method == 'OPTIONS':
         # Respond to the preflight OPTIONS request
         response = make_response()
-        response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+        response.headers['Access-Control-Allow-Origin'] = 'https://w3data-client-side.onrender.com'
         response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         response.headers['Access-Control-Max-Age'] = '3600'
