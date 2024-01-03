@@ -31,7 +31,7 @@ def catch_all(path):
     except Exception as e:
         print(f"Error serving index.html for path {path}: {e}")
         raise
-
+CORS(app, supports_credentials=True, origins='https://w3data-client-side.onrender.com')
 # MySQL connection pooling configuration
 
 mysql_pool = pooling.MySQLConnectionPool(
