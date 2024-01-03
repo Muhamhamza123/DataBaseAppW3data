@@ -23,8 +23,14 @@ app = Flask(__name__, static_folder='../w3data/build', static_url_path='/')
 @app.route('/<path:path>')
 @app.errorhandler(404)
 def catch_all(path):
-    return app.send_static_file('index.html')
-CORS(app, supports_credentials=True, origins='https://w3data-client-side.onrender.com')
+    print(f"Received request for path: {path}")    
+    try:
+        response = app.send_static_file('index.html')
+        print(f"Successfully served index.html for path: {path}")
+        return response
+    except Exception as e:
+        print(f"Error serving index.html for path {path}: {e}")
+        raise
 
 # MySQL connection pooling configuration
 
