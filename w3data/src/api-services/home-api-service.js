@@ -5,7 +5,7 @@
 import axios from 'axios';
 export const fetchUserProject = async (username, setUserProjects, setProjectCount, setLoading) => {
     try {
-      const projectResponse = await axios.get(`https://serverside-deployment.onrender.com/${username}`);
+      const projectResponse = await axios.get(`https://serverside-deployment-w3data.onrender.com/${username}`);
       setUserProjects(projectResponse.data.projects);
       setProjectCount(projectResponse.data.project_count);
       setTimeout(() => setLoading(false), 3000);
@@ -17,7 +17,7 @@ export const fetchUserProject = async (username, setUserProjects, setProjectCoun
   
   export const updateProject = async (editedProject, editedDescription, setIsSuccessMessageVisible) => {
     try {
-      const response = await axios.put(`https://serverside-deployment.onrender.com/update-project`, {
+      const response = await axios.put(`https://serverside-deployment-w3data.onrender.com/update-project`, {
         project_name: editedProject.project_name,
         project_description: editedDescription,
       });

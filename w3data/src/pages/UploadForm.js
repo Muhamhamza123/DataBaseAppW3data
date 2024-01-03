@@ -106,7 +106,7 @@ const UploadForm = () => {
 
     try {
       // Make API request
-      const response = await axios.post('https://we3data.onrender.com/upload', formData, {
+      const response = await axios.post('https://serverside-deployment-w3data.onrender.com/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
