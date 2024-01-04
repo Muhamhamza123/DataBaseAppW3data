@@ -18,22 +18,9 @@ from mysql.connector import Error
 from influxdb.exceptions import InfluxDBClientError, InfluxDBServerError
 from flask.helpers import send_from_directory
 from flask import Flask, send_from_directory, request, render_template
-app = Flask(__name__, static_folder='../w3data/build', static_url_path='')
 
-@app.route('/')
-@app.route('/<username>')
-@app.route('/<username>/<path:subpath>')
-def catch_all(username='', subpath=''):
-    requested_path = f'/{username}/{subpath}' if username else f'/{subpath}'
-    print(f"Received request for path: {requested_path}")
 
-    try:
-        response = app.send_static_file('index.html')
-        print(f"Successfully served index.html for path: {requested_path}")
-        return response
-    except Exception as e:
-        print(f"Error serving index.html for path {requested_path}: {e}")
-        raise
+app = Flask(__name__)
 CORS(app, supports_credentials=True, origins='https://w3data-client-side.onrender.com')
 # MySQL connection pooling configuration
 
