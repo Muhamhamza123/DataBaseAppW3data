@@ -5,7 +5,7 @@
 import axios from 'axios';
 export const fetchUserProject = async (username, setUserProjects, setProjectCount, setLoading) => {
     try {
-      const projectResponse = await axios.get(`https://serverside-deployment-w3data.onrender.com/${username}`);
+      const projectResponse = await axios.get(`https://serverside-deployment-w3data.onrender.com/user-projects/${username}`);
       setUserProjects(projectResponse.data.projects);
       setProjectCount(projectResponse.data.project_count);
       setTimeout(() => setLoading(false), 3000);
