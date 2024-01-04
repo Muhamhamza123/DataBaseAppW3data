@@ -20,8 +20,14 @@ from flask.helpers import send_from_directory
 from flask import Flask, send_from_directory, request, render_template
 
 
-app = Flask(__name__)
-CORS(app, supports_credentials=True, origins='https://w3data-client-side.onrender.com')
+app = Flask(__name__, static_folder='../w3data/build', static_url_path='/')
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+@app.errorhandler(404)
+def catch_all(path):
+    return app.send_static_file('index.html')
+    
+CORS(app, supports_credentials=True)
 # MySQL connection pooling configuration
 
 mysql_pool = pooling.MySQLConnectionPool(
@@ -99,7 +105,7 @@ def login():
     if request.method == 'OPTIONS':
         # Respond to the preflight OPTIONS request
         response = make_response()
-        response.headers['Access-Control-Allow-Origin'] = 'https://w3data-client-side.onrender.com'
+        response.headers['Access-Control-Allow-Origin'] = '*'
         response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
         response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
         response.headers['Access-Control-Max-Age'] = '3600'
