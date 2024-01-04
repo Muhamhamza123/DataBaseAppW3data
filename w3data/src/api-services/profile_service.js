@@ -22,7 +22,7 @@ const useProfileEffect = (username) => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const response = await axios.get(`https://serverside-deployment-w3data.onrender.com/${username}`);
+        const response = await axios.get(`https://serverside-deployment-w3data.onrender.com/profile/${username}`);
         setUserProfile(response.data);
         setLoading(false);
 
