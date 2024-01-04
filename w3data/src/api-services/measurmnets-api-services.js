@@ -18,7 +18,7 @@ export const fetchData = async (username, selectedMeasurement, selectedProject, 
 
 export const fetchUserProjects = async (username, setUserProjects, setMetadata, setUniqueVersions) => {
   try {
-    const projectResponse = await axios.get(`https://serverside-deployment-w3data.onrender.com/${username}`);
+    const projectResponse = await axios.get(`https://serverside-deployment-w3data.onrender.com/user-projects/${username}`);
     setUserProjects(projectResponse.data.projects);
 
     // Set metadata in the state
