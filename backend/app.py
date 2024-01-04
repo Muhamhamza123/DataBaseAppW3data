@@ -45,11 +45,10 @@ app.config['JWT_COOKIE_CSRF_PROTECT'] = False
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(minutes=15)
 jwt = JWTManager(app)
 
-# InfluxDB configuration
 influxdb_url = 'http://86.50.252.118:8086'
 influxdb_token = 'ynNB0w-RD65XSObOiDay0m1brg8Am14l2wFwB9ra2TYUN_6OFlaVGtStZD7S4bmJPJEri5Spmke22UKgw_qi_w=='
 influxdb_org = 'w3data'
-influxdb_bucket = "w3data"  # Update with your InfluxDB bucket
+influxdb_bucket = "we3database" 
 
 
 
