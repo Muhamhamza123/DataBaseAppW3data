@@ -695,7 +695,7 @@ def process_csv(file_path, data_creator, project_name, location, date_generated,
 
                     rfc3339_timestamp = timestamp.isoformat()
 
-                    data_point = Point("Pallas Stream Sensors")
+                    data_point = Point(selected_measurement)
 
                     # Add the new fields (Data Creator, Project Name, Location, and Date Generated)
                     data_point.tag("data_creator", data_creator)
