@@ -1222,8 +1222,6 @@ def get_metadata():
     finally:
         close_mysql_connection(connection, cursor)
 
-
-
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
+
